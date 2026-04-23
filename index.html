@@ -3,26 +3,117 @@
 <head>
 <meta charset="utf-8">
 <title>Cookie Clicker</title>
-</head>
 <style>
-    .div1{
-     width:75%;
-     background-color: cornsilk;
-     margin-left: auto;
-     margin-right: auto;
-     margin-top: 50px;
-     margin-bottom: 50px;
-     padding: 20px
-      }
-</style>
+        body {
+            background-color: #4d62ff;
+            color: white;
+            font-size: 1.1em;
+            font-family: 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+        header{
+            font-style: normal;
+            grid-area: header;
+            background-color: #001eff;
+            outline-color: #00ff60;
+            border: #692703;
+            border-style: ridge;
+            border-width: 10px;
+            font-size: 3em;
+        }
+        #shop{
+            grid-area: "shop";
+            color: white;
+            background-color: #001be3;
+            border: #692703;
+            border-style: ridge;
+            border-width: 10px;
+        }
+        main{
+            grid-area: main;
+            background-color: #0016bd;
+            border: #692703;
+            border-style: ridge;
+            border-width: 10px;
+        }
+        footer{
+            grid-area: footer;
+            background-color: #000950;
+            border: #692703;
+            border-style: ridge;
+            border-width: 10px;
+        }
+        /*this is null*/
+        #wrapper{
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto; 
+        }
+        @media (min-width:1024px) {
+        #wrapper{
+            display: grid;
+            grid-template-columns: auto 20%;
+            grid-template-rows: 8em auto 5em;
+            grid-template-areas:"header header"
+                                "main    shop"
+                                "footer footer";
+        }
+        }
+        @media (min-width:768px) and (max-width:1024px) {
+        #wrapper{
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 8em 4em auto 4em;
+            grid-template-areas:"header"
+                                "shop"
+                                "main"
+                                "footer";
+        }
+        }
+        @media (max-width:768px) {
+        body{
+            font-size: 1.4em;
+        }
+        #wrapper{
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 8em 8em auto 4em;
+            grid-template-areas:"header"
+                                "shop"
+                                "main"
+                                "footer";
+        }
+        }
+        .imager{
+            width: auto;
+            height: auto;
+            padding: 0%;
+        }
+        .imager img{
+            width: 100%;
+            height: auto;
+            line-height: 0%;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
 <body>
-	<h1>SHOP</h1>
-<p id="shopPrice"></p>
-<input type="button" id="shop" name="shop" value="Buy level" onClick="multShop()"></button>
-<p id="shopReturn"></p>
-	<br>
-	<p></p>
-<img src="Cookie.jpg" width="1023" height="896" onClick="Clicked()" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
+<div id="wrapper">
+	<header></header>
+	<div id="shop">
+		<h1>SHOP</h1>
+		<p id="shopPrice"></p>
+		<input type="button" id="shop" name="shop" value="Buy level" onClick="multShop()"></button>
+		<p id="shopReturn"></p>
+			<br>
+			<p></p>
+	</div>
+	<main>
+		<img src="Cookie.jpg" width="1023" height="896" onClick="Clicked()" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
+	</main>
+	<footer>rats</footer>
+</div>
 </body>
   
 <script>

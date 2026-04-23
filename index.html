@@ -25,7 +25,7 @@
 </style>
 <body>
 	<h1>SHOP</h1>
-<p id="shopPrice"></p>
+<p id="shopPrice">100</p>
 <input type="button" id="shop" name="shop" value="Buy level" onClick="multShop()"></button>
 <p id="shopReturn"></p>
 	<br>
@@ -38,13 +38,6 @@ let ClickCount=0;
 //Needed global variables
 let pointMulti = 1;
 let level = 0;
-onload(Start());
-function Clicked(){
-	ClickCount=ClickCount+(1*pointMulti);
-}
-function Start(){
-    document.getElementById("shopPrice").innerHTML = "100";
-}
 
 //======================================Functions==========================================
 function multShop() {

@@ -1,10 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Cookie Clicker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+        .div1{
+        width:75%;
+        background-color: cornsilk;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 20px
+}
+    </style>
+
+
 </head>
 <body>
-<img src="Cookie.jpg" width="1023" height="896" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
+    <div class="div1">
+        <h1>Test</h1>
+    </div>
 </body>
+<script>
+//Global variables
+let points = 0;
+let pointMulti = 1;
+let level = 0;
+//======================================Functions==========================================
+function multShop() {
+    //messege
+    let error = ""
+    //value trackers=======================================================================
+    let mult = [5, 25, 125, 625, 3125, 15625];
+    let priceTotal = [100, 1000, 10000, 100000, 1000000, 10000000];
+
+    //Price setter
+    let price = priceTotal[level];//sets price to = the current price from price total
+
+    if (points >= price) {//will check if point is greater than or equal to the price
+        pointMulti = mult[level];
+        level++;
+        error = "You are now Level:" + level
+    }
+    else {//Will boot not enough points if you do not match the current price
+        error = "Not Enough Points";
+    }
+
+    document.getElementById("shopReturn") = error;//returns either a good messege or bad messege
+}//End of multShop()
+//========================================================================================
+</script>
 </html>
+

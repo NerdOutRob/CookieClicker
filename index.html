@@ -1,7 +1,8 @@
+<!doctype html>
+<html>
 <head>
 <meta charset="utf-8">
 <title>Cookie Clicker</title>
-</head>
 <style>
     .div1{
      width:75%;
@@ -108,16 +109,18 @@
         }
     </style>
 </head>
+
 <body>
     <div id="wrapper">
         <header>cookie clicker</header>
         <div id="shop">
 	        <h1>SHOP</h1>
             <p id="shopPrice"></p>
-            <input type="button" id="shop" name="shop" value="Buy level" onClick="multShop()"></button>
+<!--            <input type="button" id="shop" name="shop" value="Buy level" onClick="multShop()"></button>-->
             <p id="shopReturn"></p>
         </div>
         <main>
+			<div id="Counter">0</div>
             <img src="Cookie.jpg" width="256" height="256" onClick="Clicked()" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
         </main>
         <footer>this is not a official version of cookie clicker</footer>
@@ -129,13 +132,12 @@ let ClickCount=0;
 //Needed global variables
 let pointMulti = 1;
 let level = 0;
-onload(Start());
 function Clicked(){
 	ClickCount=ClickCount+(1*pointMulti);
+	document.getElementById("Counter").innerHTML=ClickCount;
+	
 }
-function Start(){
-    document.getElementById("shopPrice").innerHTML = "100";
-}
+
 
 //======================================Functions==========================================
 function multShop() {

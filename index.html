@@ -107,6 +107,15 @@
             margin: 0px;
             padding: 0px;
         }
+        #main_frame{
+            position: relative;
+        }
+        #frame{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 300px;
+        }
         .class_cookie{
             width: 50px;
             height: 50px;
@@ -125,6 +134,7 @@
             <p id="shopReturn"></p>
         </div>
         <main id="main_frame">
+            <div id="frame"></div>
 			<div id="Counter">0</div>
             <img src="Cookie.jpg" width="256" height="256" onClick="Clicked()" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
         </main>
@@ -162,7 +172,7 @@ function multShop() {
         ClickCount = ClickCount-price;
         error = "You are now Level:" + level
 		document.getElementById("shopPrice").innerHTML = priceTotal[level];
-		victory_cookie("main_frame",20,"Cookie.jpg");
+		victory_cookie("frame",10,"Cookie.jpg");
     	document.getElementById("Counter").innerHTML=ClickCount;
     }
     else {//Will boot not enough points if you do not match the current price

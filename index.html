@@ -107,22 +107,25 @@
             margin: 0px;
             padding: 0px;
         }
+        .class_cookie{
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 
 <body>
     <div id="wrapper">
-        <header style="text-align: center">Cookie Clicker</header>
+        <header>cookie clicker</header>
         <div id="shop">
-	        <h1 style="text-align: center">SHOP</h1>
-            <p id="shopPrice"></p>
+	        <h1>SHOP</h1>
+            <input type="button" value="BUY" onclick="multShop();">
+            <p id="shopPrice">BUY</p>
 <!--            <input type="button" id="shop" name="shop" value="Buy level" onClick="multShop()"></button>-->
             <p id="shopReturn"></p>
         </div>
-        <main>
-			<br>
-			<div id="Counter" style="text-align: center">0</div>
-			<br>
+        <main id="main_frame">
+			<div id="Counter">0</div>
             <img src="Cookie.jpg" width="256" height="256" onClick="Clicked()" alt="" style="display: block; margin-left: auto; margin-right: auto;"/>
         </main>
         <footer>this is not a official version of cookie clicker</footer>
@@ -137,7 +140,6 @@ let level = 0;
 function Clicked(){
 	ClickCount=ClickCount+(1*pointMulti);
 	document.getElementById("Counter").innerHTML=ClickCount;
-	
 }
 
 
@@ -146,18 +148,22 @@ function multShop() {
     //messege
     let error = ""
     //value trackers=======================================================================
-    let mult = [5, 25, 125, 625, 3125, 15625];
-    let priceTotal = [100, 1000, 10000, 100000, 1000000, 10000000];
+    let mult = [2,5, 25, 125, 625, 3125, 15625];
+    let priceTotal = [10, 100, 1000, 10000, 100000, 1000000, 10000000];
 
     //Price setter
     let price = priceTotal[level];//sets price to = the current price from price total
 
+    console.log(price);
+    
     if (ClickCount >= price) {//will check if point is greater than or equal to the price
         pointMulti = mult[level];
         level++;
         ClickCount = ClickCount-price;
         error = "You are now Level:" + level
 		document.getElementById("shopPrice").innerHTML = priceTotal[level];
+		victory_cookie("main_frame",20,"Cookie.jpg");
+    	document.getElementById("Counter").innerHTML=ClickCount;
     }
     else {//Will boot not enough points if you do not match the current price
         error = "Not Enough Points";
@@ -205,10 +211,11 @@ async function victory_cookie(frame_id,num,src){
             el.style.marginTop=top+"px";
             el.style.marginLeft=left+"px";
         }
+        return true;
     };
 
     let loop=true;
-    while(true){
+    while(loop){
         loop=move(10);
         await new Promise(resolve=> setTimeout(resolve,100));
     }
